@@ -82,8 +82,11 @@ async function handleSignUp(values){
       toast.success('Registration completed successfully')
     }catch(e){
       toast.error('You need to complete the authentication process to continue. Please click the "Sign up" button and try again.')
+      setLoadingGoogle(false)
+      setLoading(false)
     }finally{
       setLoadingGoogle(false)
+      setLoading(false)
     }
   }
 
