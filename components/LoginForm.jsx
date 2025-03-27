@@ -46,19 +46,12 @@ const LoginForm = () => {
     }
 
     const handleGoogleSignIn = async () => {
-      try{
-        setLoading(true)
         const provider = new GoogleAuthProvider()
   
          await signInWithPopup(auth,provider);
   
         toast.success('Login Successful')
-      }catch(e){
-        toast.error('You need to complete the authentication process to continue. Please click the "Sign up" button and try again.')
-      }finally{
-        setLoading(false)
-      }
-    }
+  }
   
   return (
     <Form {...LoginForm}>
@@ -82,8 +75,8 @@ const LoginForm = () => {
                 <FormMessage/>
             </FormItem>
             )} />
-        <Button disabled={loading} type="submit">Submit</Button>
-        <Button type="button" disabled={loading} onClick={handleGoogleSignIn} variant="secondary" className={`w-full cursor-pointer`}>
+        <Button type="submit">Submit</Button>
+        <Button type="button" onClick={handleGoogleSignIn} variant="secondary" className={`w-full cursor-pointer`}>
             Sign in with Google
             <i className="fa-brands fa-google text-xl"></i>
         </Button>

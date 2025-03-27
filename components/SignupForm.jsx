@@ -17,7 +17,7 @@ import { PasswordInput } from './ui/password-input'
 const SignupForm = () => {
 
   const [loading, setLoading] = useState(false)
-  const [loadingGoogle, setLoadingGoogle] = useState(false)
+  // const [loadingGoogle, setLoadingGoogle] = useState(false)
 
     const SignUpForm = useForm({
     resolver: zodResolver(SignUpSchema),
@@ -64,9 +64,7 @@ async function handleSignUp(values){
   }
 
   const handleGoogleSignIn = async () => {
-    try{
-      setLoadingGoogle(true)
-      setLoading(true)
+
       const provider = new GoogleAuthProvider()
 
       const authCredential = await signInWithPopup(auth,provider);
@@ -80,11 +78,6 @@ async function handleSignUp(values){
       })
 
       toast.success('Registration completed successfully')
-    }catch(e){
-      toast.error('You need to complete the authentication process to continue. Please click the "Sign up" button and try again.')
-    }finally{
-      setLoadingGoogle(false)
-    }
   }
 
   return (
@@ -133,7 +126,7 @@ async function handleSignUp(values){
           {loading ? "Registering..." : "Submit"}
         </Button>
 
-        <Button type="button" disabled={loadingGoogle} onClick={handleGoogleSignIn} variant="secondary" className={`w-full cursor-pointer`}>
+        <Button type="button" onClick={handleGoogleSignIn} variant="secondary" className={`w-full cursor-pointer`}>
           Sign up with Google
           <i className="fa-brands fa-google text-xl"></i>
         </Button>
