@@ -82,12 +82,12 @@ const LoginForm = () => {
                 <FormMessage/>
             </FormItem>
             )} />
-        <Button type="submit">Submit</Button>
-        </form>
-        <Button disabled={loading} onClick={handleGoogleSignIn} variant="secondary" className={`mt-3 w-full cursor-pointer`}>
+        <Button disabled={loading} type="submit">Submit</Button>
+        <Button type="button" disabled={loading} onClick={handleGoogleSignIn} variant="secondary" className={`w-full cursor-pointer`}>
             Sign in with Google
             <i className="fa-brands fa-google text-xl"></i>
         </Button>
+        </form>
     </Form>
 )
 }

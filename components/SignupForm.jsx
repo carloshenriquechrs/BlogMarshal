@@ -39,9 +39,8 @@ async function handleSignUp(values){
     }
     
     try{
-
+      
       setLoading(true)
-      setLoadingGoogle(true)
 
       const authCredential = await createUserWithEmailAndPassword(
         auth, values.email, values.password
@@ -61,13 +60,13 @@ async function handleSignUp(values){
     console.error(e)
   }finally{
     setLoading(false)
-    setLoadingGoogle(false)
   }
   }
 
   const handleGoogleSignIn = async () => {
     try{
       setLoadingGoogle(true)
+      setLoading(true)
       const provider = new GoogleAuthProvider()
 
       const authCredential = await signInWithPopup(auth,provider);
@@ -83,7 +82,6 @@ async function handleSignUp(values){
       toast.success('Registration completed successfully')
     }catch(e){
       toast.error('You need to complete the authentication process to continue. Please click the "Sign up" button and try again.')
-      setLoadingGoogle(false)
     }finally{
       setLoadingGoogle(false)
     }
@@ -132,13 +130,14 @@ async function handleSignUp(values){
           </FormItem>
         )} />
         <Button disabled={loading} type="submit">
-          {loading ? "Submitting..." : "Submit"}
+          {loading ? "Registering..." : "Submit"}
         </Button>
-    </form>
-        <Button disabled={loadingGoogle} onClick={handleGoogleSignIn} variant="secondary" className={`mt-3 w-full cursor-pointer`}>
+
+        <Button type="button" disabled={loadingGoogle} onClick={handleGoogleSignIn} variant="secondary" className={`w-full cursor-pointer`}>
           Sign up with Google
           <i className="fa-brands fa-google text-xl"></i>
         </Button>
+    </form>
     </Form>
 )
 }

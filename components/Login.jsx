@@ -19,7 +19,7 @@ export default function Login() {
     <div className="w-full flex min-h-screen items-start justify-center p-4">
       <Card className="w-full max-w-[400px]">
         <CardHeader>
-          <CardTitle className="text-center">{isRegister ? 'Registration Form' : 'Login Form'}</CardTitle>
+          <CardTitle className="text-center">{isRegister ? 'Sign up Form' : 'Sign in Form'}</CardTitle>
           <CardDescription className="text-center">
             {isRegister ? 'Enter your information and complete your registration' : 'Enter your information and login to your account'}
           </CardDescription>
