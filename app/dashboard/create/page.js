@@ -105,7 +105,7 @@ const CreateBlogRoute = () => {
                 <FormItem>
                   <FormLabel>Image URL</FormLabel>
                   <FormControl>
-                    <Input placeholder="Digite a url da sua imagem" {...field}/>
+                    <Input placeholder="Enter the image url of your post" {...field}/>
                   </FormControl>
                   <FormMessage/>
                 </FormItem>

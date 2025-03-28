@@ -51,3 +51,19 @@ export async function CreatePost(values) {
         message: 'Post created successfully'
     }
 }
+
+export async function EditPost(values) {
+    const result = PostSchema.safeParse(values)
+    
+    if(!result.success){
+        return{
+            status: 'error',
+            message: result.error.message,
+        }
+    }
+
+    return{
+        status: 'success',
+        message: 'Post created successfully'
+    }
+}

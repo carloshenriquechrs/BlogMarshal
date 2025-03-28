@@ -4,6 +4,7 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import { useAuth } from "@/context/AuthContext"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 const Navbar = () => {
     const {currentUser,logout,userDataObj} = useAuth() 
@@ -14,7 +15,6 @@ const Navbar = () => {
         return
         }
         setData(userDataObj)
-        // console.log(userDataObj)
     },[currentUser,userDataObj])
   
   return (
@@ -42,9 +42,16 @@ const Navbar = () => {
                     </Link>
                 </div> 
                 ) : (
-                    <div className="flex items-center gap-4">
-                        <p>{data?.name}</p>
+                    <div className="flex items-center gap-10">
                         <Button onClick={logout}>Logout</Button>
+                        <div>
+                            <div className="flex items-center space-x-2">
+                                <p className="font-medium">{data.name}</p>
+                                <div className="relative size-10 overflow-hidden rounded-full">
+                                    <Image src={data.imageUrl || "/NoUserImage.jpg"} alt="User Avatar" fill className="object-cover"/>
+                                </div>
+                            </div> 
+                        </div> 
                     </div>                                     
             ) }                
         </nav>

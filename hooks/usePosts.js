@@ -36,7 +36,6 @@ const usePosts = (userId = null) => {
         );
 
         setPosts(postsWithUserInfo);
-        console.log(postsWithUserInfo)
       } catch (error) {
         console.error("Error fetching posts:", error);
       } finally {

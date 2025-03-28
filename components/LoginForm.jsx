@@ -54,7 +54,7 @@ const LoginForm = () => {
   
         toast.success('Login Successful')
       }catch(e){
-        toast.error('You need to complete the authentication process to continue. Please click the "Sign up" button and try again.')
+        toast.error('You need to complete the authentication process to continue. Please try again')
       }finally{
         setLoading(false)
       }
